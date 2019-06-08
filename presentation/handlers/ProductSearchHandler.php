@@ -1,6 +1,7 @@
 <?php
 
 require_once '../../Autoloader.php';
+include '../../navbar.php';
 
 $searchPhrase = $_POST['product'];
 

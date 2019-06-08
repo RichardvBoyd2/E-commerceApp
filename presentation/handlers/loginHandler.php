@@ -1,5 +1,6 @@
 <?php
 require_once '../../Autoloader.php';
+include '../../navbar.php';
 
 $user = $_POST['username'];
 $pass = $_POST['password'];

@@ -2,33 +2,13 @@
 
 ?>
 <head>
-<style>
-#customers {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="../../DataTables/datatables.css">
+<script src="../../DataTables/jQuery-3.3.1/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="../../DataTables/datatables.js"></script>
 </head>
 
-<table id="customers">
+<table id="customers" class="display">
+	<thead>
 	<tr>
 	<th>ID</th>
 	<th>First Name</th>
@@ -38,8 +18,12 @@
 	<th>City</th>
 	<th>State</th>
 	<th>Zip Code</th>
+	<?php if ($_SESSION['Role'] == 5) {?>
+	<th>Edit?</th>
+	<?php }?>
 	</tr>
-	
+	</thead>
+	<tbody>
 	<?php 
 	for ($x = 0; $x < count($persons); $x++) {
 	    echo "<tr>";
@@ -51,7 +35,22 @@
 	    echo "<td>".$persons[$x]['CITY']."</td>";
 	    echo "<td>".$persons[$x]['STATE']."</td>";
 	    echo "<td>".$persons[$x]['ZIP']."</td>";
+	    if ($_SESSION['Role'] == 5) {
+	    echo "<td>
+                <form action='../views/admin/editUser.php' method='post'>
+            	   <input type='hidden' name='ID' value='".$persons[$x]['ID']."'/>
+            	   <input type='submit' value='Edit' />
+                </form>
+              </td>";
+	    }
+	    echo "</tr>";
 	}
 	?>
-
+	</tbody>
 </table>
+
+<script>
+$(document).ready( function () {
+    $('#customers').DataTable();
+} );
+</script>

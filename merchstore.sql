@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: May 31, 2019 at 09:30 AM
+-- Generation Time: Jun 08, 2019 at 05:46 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.10
 
@@ -44,7 +44,6 @@ CREATE TABLE `addresses` (
 --
 
 INSERT INTO `addresses` (`ID`, `ADDRESSTYPE`, `ISDEFAULT`, `USERS_ID`, `STREET`, `CITY`, `STATE`, `ZIP`) VALUES
-(1, 1, 1, 1, '95 John Wall Alley', 'Nashville', 'Tennessee', '37228'),
 (2, 1, 1, 2, '8 Arrowood Crossing', 'San Antonio', 'Texas', '78240'),
 (3, 1, 1, 3, '99456 Bobwhite Pass', 'Scottsdale', 'Arizona', '85260'),
 (4, 1, 1, 4, '8 Bartelt Crossing', 'Orlando', 'Florida', '32859'),
@@ -741,9 +740,9 @@ INSERT INTO `addresses` (`ID`, `ADDRESSTYPE`, `ISDEFAULT`, `USERS_ID`, `STREET`,
 (695, 1, 1, 695, '24 Ridge Oak Center', 'Macon', 'Georgia', '31217'),
 (696, 1, 1, 696, '173 Coleman Terrace', 'Miami', 'Florida', '33190'),
 (697, 1, 1, 697, '99 Hansons Lane', 'Olympia', 'Washington', '98516'),
-(698, 1, 1, 698, '9593 Aberg Place', 'Hagerstown', 'Maryland', '21747');
+(698, 1, 1, 698, '9593 Aberg Place', 'Hagerstown', 'Maryland', '21747'),
+(699, 1, 1, 699, '726 Golden Leaf Parkway', 'Saint Louis', 'Missouri', '63131');
 INSERT INTO `addresses` (`ID`, `ADDRESSTYPE`, `ISDEFAULT`, `USERS_ID`, `STREET`, `CITY`, `STATE`, `ZIP`) VALUES
-(699, 1, 1, 699, '726 Golden Leaf Parkway', 'Saint Louis', 'Missouri', '63131'),
 (700, 1, 1, 700, '89743 Petterle Place', 'Washington', 'District of Columbia', '20397'),
 (701, 1, 1, 701, '1 Sommers Park', 'Pensacola', 'Florida', '32595'),
 (702, 1, 1, 702, '01061 Maple Lane', 'Palm Bay', 'Florida', '32909'),
@@ -1107,7 +1106,6 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`) VALUES
-(1, 'Famotidine', 'donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante', 32.35),
 (2, 'OB Cleansing Towelette', 'justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing', 74.96),
 (3, 'HOT FLASH RESCUE', 'ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae', 92.86),
 (4, 'SODIUM CHLORIDE', 'magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis', 87.71),
@@ -1479,9 +1477,9 @@ INSERT INTO `products` (`ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`) VALUES
 (370, 'Finafta', 'praesent blandit lacinia erat vestibulum sed magna at nunc commodo', 15.24),
 (371, 'equate naproxen sodium', 'primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio', 64.01),
 (372, 'Metoprolol Tartrate', 'luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in', 29.28),
-(373, 'Arthros', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus', 78.1);
+(373, 'Arthros', 'justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus', 78.1),
+(374, 'SEPIA OFFICINALIS', 'nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer', 92.94);
 INSERT INTO `products` (`ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`) VALUES
-(374, 'SEPIA OFFICINALIS', 'nisi at nibh in hac habitasse platea dictumst aliquam augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer', 92.94),
 (375, 'Nitrogen', 'praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede', 81.78),
 (376, 'venlafaxine hydrochloride', 'duis at velit eu est congue elementum in hac habitasse platea', 47.31),
 (377, 'Bacto Plus HP', 'quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor', 31.55),
@@ -1852,9 +1850,9 @@ INSERT INTO `products` (`ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`) VALUES
 (742, 'Mucor plumbeus', 'parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus', 59.94),
 (743, 'AMOXICILLIN AND CLAVULANATE POTASSIUM', 'ut ultrices vel augue vestibulum ante ipsum primis in faucibus orci', 98.21),
 (744, 'Horse Epithelium', 'lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper', 51.36),
-(745, 'good sense migraine formula', 'sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus', 60.77);
+(745, 'good sense migraine formula', 'sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus', 60.77),
+(746, 'Amantadine Hydrochloride', 'tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer', 16.38);
 INSERT INTO `products` (`ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`) VALUES
-(746, 'Amantadine Hydrochloride', 'tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer', 16.38),
 (747, 'Famotidine', 'sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque', 58.89),
 (748, 'REPARA', 'nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi', 80.43),
 (749, 'Prep Solution', 'ligula vehicula consequat morbi a ipsum integer a nibh in quis justo maecenas rhoncus aliquam', 47.61),
@@ -2108,7 +2106,8 @@ INSERT INTO `products` (`ID`, `PRODUCTNAME`, `DESCRIPTION`, `PRICE`) VALUES
 (997, 'Epiphysis Plumbum', 'habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec', 98.7),
 (998, 'FINASTERIDE', 'pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem', 95.26),
 (999, 'Water Oak', 'non interdum in ante vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus', 34.35),
-(1000, 'Morphine sulfate', 'consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla', 18.6);
+(1000, 'Morphine sulfate', 'consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla', 18.6),
+(1001, 'Program Tester 5000 *edit', 'This device will automatically test your programs for you and give you a detailed report on bugs found and small improvements it thinks would make your program better. The 5000 model will also find stackoverflow links to help you fix the problems it found! *edit', 2999.99);
 
 -- --------------------------------------------------------
 
@@ -2121,7 +2120,7 @@ CREATE TABLE `users` (
   `FIRSTNAME` varchar(45) DEFAULT NULL,
   `LASTNAME` varchar(45) DEFAULT NULL,
   `USERNAME` varchar(45) DEFAULT NULL,
-  `ROLE` int(11) DEFAULT NULL,
+  `ROLE` int(11) DEFAULT '1',
   `PASSWORD` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -2130,7 +2129,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`ID`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `ROLE`, `PASSWORD`) VALUES
-(1, 'Base', 'Wesker', 'BaseWesker', 1, 'JuJeSyEYN'),
 (2, 'Fremont', 'Shevelin', 'FremontShevelin', 4, 'UFVfUvPF3vG'),
 (3, 'Xenos', 'Molen', 'XenosMolen', 4, 'C8HwpP2zeVfY'),
 (4, 'Stern', 'Treven', 'SternTreven', 3, 'TgGpFr28'),
@@ -2974,9 +2972,9 @@ INSERT INTO `users` (`ID`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `ROLE`, `PASSWOR
 (842, 'Gifford', 'Hickisson', 'GiffordHickisson', 3, 'Mz5LUyIX'),
 (843, 'Ody', 'Bending', 'OdyBending', 4, 'Y2CNm2i4KWI'),
 (844, 'Isaac', 'Braz', 'IsaacBraz', 2, 'oCecIKqd'),
-(845, 'Dur', 'Choke', 'DurChoke', 4, 'tRKjqG');
+(845, 'Dur', 'Choke', 'DurChoke', 4, 'tRKjqG'),
+(846, 'Horace', 'Shoutt', 'HoraceShoutt', 4, 'Ye1jJx');
 INSERT INTO `users` (`ID`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `ROLE`, `PASSWORD`) VALUES
-(846, 'Horace', 'Shoutt', 'HoraceShoutt', 4, 'Ye1jJx'),
 (847, 'Perla', 'Noseworthy', 'PerlaNoseworthy', 3, '5k1f1JpbGof'),
 (848, 'Lane', 'Boneham', 'LaneBoneham', 1, '6XsjdG2fjn'),
 (849, 'Kimberly', 'Covet', 'KimberlyCovet', 2, 'p32MIIyHy'),
@@ -3131,7 +3129,7 @@ INSERT INTO `users` (`ID`, `FIRSTNAME`, `LASTNAME`, `USERNAME`, `ROLE`, `PASSWOR
 (998, 'Griff', 'Pirolini', 'GriffPirolini', 1, 'adAoDJaGzc'),
 (999, 'Nico', 'Nunes Nabarro', 'NicoNunes Nabarro', 4, 'USroby1S'),
 (1000, 'Pia', 'Sallowaye', 'PiaSallowaye', 3, 'gugfAK'),
-(1001, 'Rick', 'Boyd', 'admin', NULL, 'Password1');
+(1001, 'Rick', 'Boyd', 'admin', 5, 'Password1');
 
 --
 -- Indexes for dumped tables
@@ -3150,7 +3148,7 @@ ALTER TABLE `addresses`
 ALTER TABLE `orderdetails`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `DetailsOrdersId_idx` (`ORDERS_ID`),
-  ADD KEY `DetailsProductsId_idx` (`PRODUCTS_ID`);
+  ADD KEY `DetailsProducsId_idx` (`PRODUCTS_ID`);
 
 --
 -- Indexes for table `ordernotes`
@@ -3192,6 +3190,12 @@ ALTER TABLE `addresses`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -3205,14 +3209,14 @@ ALTER TABLE `users`
 -- Constraints for table `addresses`
 --
 ALTER TABLE `addresses`
-  ADD CONSTRAINT `AddressUserId` FOREIGN KEY (`USERS_ID`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `AddressUserId` FOREIGN KEY (`USERS_ID`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
   ADD CONSTRAINT `DetailsOrdersId` FOREIGN KEY (`ORDERS_ID`) REFERENCES `orders` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `DetailsProductsId` FOREIGN KEY (`PRODUCTS_ID`) REFERENCES `products` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `DetailsProducsId` FOREIGN KEY (`PRODUCTS_ID`) REFERENCES `products` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `ordernotes`

@@ -14,7 +14,10 @@
 	<th>ID</th>
 	<th>Product Name</th>
 	<th>Description</th>
-	<th>Price</th>	
+	<th>Price</th>
+	<?php if ($_SESSION['Role'] == 5) {?>
+	<th>Edit</th>
+	<?php }?>
 	</tr>
 	</thead>
 	<tbody>
@@ -26,6 +29,17 @@
 	    echo "<td>".$products[$x]['PRODUCTNAME']."</td>";
 	    echo "<td>".$products[$x]['DESCRIPTION']."</td>";
 	    echo "<td>".$products[$x]['PRICE']."</td>";
+	    if ($_SESSION['Role'] == 5) {
+	    echo "<td>
+    	    	<form action='../views/admin/editProduct.php' method='post'>
+    	    		<input type='hidden' name='ID' value='".$products[$x]['ID']."'/>
+    	    		<input type='hidden' name='PRODUCTNAME' value='".$products[$x]['PRODUCTNAME']."'/>
+    	    		<input type='hidden' name='DESCRIPTION' value='".$products[$x]['DESCRIPTION']."'/>
+    	    		<input type='hidden' name='PRICE' value='".$products[$x]['PRICE']."'/>
+    	    		<input type='submit' value='Edit' />
+    	    	</form>
+    	    </td>";
+	    }
 	    echo "</tr>";
 	}
 	?>

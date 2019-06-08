@@ -3,9 +3,27 @@
 class UserBusinessService
 {
     
-    function registerNewUser($user, $pass, $first, $last, $street, $city, $state, $zip) {
+    function deleteUser($id) {
         $dbservice = new UserDataService();
-        if ($dbservice->registerNewUser($user, $pass, $first, $last, $street, $city, $state, $zip)) {
+        if ($dbservice->deleteUser($id)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    function editUser($id, Person $user) {
+        $dbservice = new UserDataService();
+        if ($dbservice->editUser($id, $user)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    function registerNewUser(Person $newuser) {
+        $dbservice = new UserDataService();
+        if ($dbservice->registerNewUser($newuser)) {
             return true;
         } else {
             return false;
@@ -25,6 +43,13 @@ class UserBusinessService
         } else {
             return 2;
         }
+    }
+    
+    function findByIdWithAddress($id) {
+        $dbservice = new UserDataService();
+        
+        $person = $dbservice->findByIdWithAddress($id);
+        return $person;
     }
     
     function findByFirstNameWithAddress($name) {

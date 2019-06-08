@@ -6,7 +6,7 @@ spl_autoload_register(function($class){
     
     $numberoflastdirectories = substr_count($lastdirectories, '\\');
     
-    $directories = ['database', 'businessService', 'businessService/model', 'presentation', 'presentation/handlers', 'presentation/views', 'presentation/views/login', 'presentation/views/register'];
+    $directories = ['database', 'businessService', 'businessService/model', 'presentation', 'presentation/handlers', 'presentation/views', 'presentation/views/login', 'presentation/views/register', 'presentation/views/admin'];
     
     foreach ($directories as $d) {
         $currentdirectory = $d;

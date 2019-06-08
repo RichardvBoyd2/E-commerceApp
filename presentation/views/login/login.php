@@ -2,19 +2,13 @@
 
 <html>
 	<head>
-		<title>Login</title>	
-		
-		<link rel="stylesheet" type="text/css" href="../../../style.css">
-
-			
+		<title>Login</title>
 	</head>
 	<body>
 		 
-		<div class="navbar">
-			<a href="../../../index.html">Home</a>
-			<a href="../register/register.php">Sign Up</a>			
-			<a href="login.php" >Log In</a>				
-		</div>
+		<?php 
+		include '../../../navbar.php';
+		?>
 		
 		<div>
 			<h1>Log in</h1>

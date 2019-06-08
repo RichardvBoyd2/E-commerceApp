@@ -14,27 +14,7 @@
  * Table styles
  */
  
-body {
-	background-color: silver;
-}
-.navbar {
-	background-color: gray;
-	height: 48px;
-	overflow: hidden;				
-}
-.navright {
-	float: right;
-}
-.navbar a {	
-	float: left;
-	text-align: center;
-	padding: 14px 16px;
-	font-size: 17px;
-}
-.navbar a:hover {
-	background-color: white;
-}
- 
+
 table.dataTable {
   width: 100%;
   margin: 0 auto;

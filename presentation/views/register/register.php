@@ -3,17 +3,12 @@
 <html>
 	<head>
 		<title>Registrer New User</title>
-		
 		<link rel="stylesheet" type="text/css" href="../../../style.css">
-
-			
 	</head>
 	<body>
-		<div class="navbar">
-			<a href="../../../index.html">Home</a>
-			<a href="register.php">Sign Up</a>			
-			<a href="../login/login.php" >Log In</a>				
-		</div>
+		<?php 
+		include '../../../navbar.php';
+		?>
 		<div>
 			<h1>Register a new user</h1>			
 			<form action="../../handlers/registrationHandler.php" method="POST">
