@@ -3,6 +3,75 @@
 class ProductDataService
 {
     
+    function removeFromCart($cartID) {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        
+        $sql = "DELETE FROM cart WHERE ID='$cartID'";
+        
+        if (mysqli_query($conn, $sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    function editQuantity($cartID, $quantity) {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        
+        $sql = "UPDATE cart SET 
+                QUANTITY='$quantity' 
+                WHERE ID='$cartID'";
+        
+        if (mysqli_query($conn, $sql)) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
+    
+    function getCart($user) {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        
+        $sql = "SELECT cart.ID, PRODUCTNAME, PRICE, QUANTITY
+                FROM cart
+                INNER JOIN products
+                ON cart.PRODUCTS_ID = products.ID
+                WHERE cart.USERS_ID = '$user'";
+        
+        $result = mysqli_query($conn, $sql);
+        
+        if ($result->num_rows == 0 ) {
+            return null;
+        } else {
+            
+            $products = array();
+            
+            while ($product = mysqli_fetch_assoc($result)) {
+                array_push($products, $product);
+            }
+            
+            return $products;
+        }
+    }
+    
+    function addToCart($user, $product) {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        
+        $sql = "INSERT INTO cart (USERS_ID, PRODUCTS_ID)
+                VALUES ('$user', '$product')";
+        
+        if (mysqli_query($conn, $sql)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     function deleteProduct($id) {
         $db = new Database();
         $conn = $db->dbConnect();
@@ -57,7 +126,7 @@ class ProductDataService
             return false;            
         }
         
-    }
+    }    
     
     function findByProductName($name) {
         $db = new Database();

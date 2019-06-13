@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jun 08, 2019 at 05:46 PM
+-- Generation Time: Jun 13, 2019 at 03:14 AM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.10
 
@@ -1045,6 +1045,27 @@ INSERT INTO `addresses` (`ID`, `ADDRESSTYPE`, `ISDEFAULT`, `USERS_ID`, `STREET`,
 (999, 1, 1, 999, '68 Carberry Parkway', 'Dallas', 'Texas', '75367'),
 (1000, 1, 1, 1000, '3 Express Trail', 'Young America', 'Minnesota', '55573'),
 (1001, 1, 1, 1001, '1001 S Fake St', 'Gilbert', 'Arizona', '85296');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `ID` int(11) NOT NULL,
+  `USERS_ID` int(11) DEFAULT NULL,
+  `PRODUCTS_ID` int(11) DEFAULT NULL,
+  `QUANTITY` int(11) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`ID`, `USERS_ID`, `PRODUCTS_ID`, `QUANTITY`) VALUES
+(3, 1001, 5, 3),
+(5, 1001, 10, 7);
 
 -- --------------------------------------------------------
 
@@ -3143,6 +3164,14 @@ ALTER TABLE `addresses`
   ADD KEY `AddressUserId_idx` (`USERS_ID`);
 
 --
+-- Indexes for table `cart`
+--
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `USERCART_idx` (`USERS_ID`),
+  ADD KEY `PRODUCTCART_idx` (`PRODUCTS_ID`);
+
+--
 -- Indexes for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
@@ -3190,10 +3219,16 @@ ALTER TABLE `addresses`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --
+-- AUTO_INCREMENT for table `cart`
+--
+ALTER TABLE `cart`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1003;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -3210,6 +3245,13 @@ ALTER TABLE `users`
 --
 ALTER TABLE `addresses`
   ADD CONSTRAINT `AddressUserId` FOREIGN KEY (`USERS_ID`) REFERENCES `users` (`ID`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `cart`
+--
+ALTER TABLE `cart`
+  ADD CONSTRAINT `PRODUCTCART` FOREIGN KEY (`PRODUCTS_ID`) REFERENCES `products` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `USERCART` FOREIGN KEY (`USERS_ID`) REFERENCES `users` (`ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `orderdetails`

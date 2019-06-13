@@ -33,6 +33,7 @@
 			<a href="/CST236MilestoneProject/presentation/views/register/register.php">New User</a>
 			<?php }
 			      if ($_SESSION['Loggedin'] == true) {?>
+			<a href="/CST236MilestoneProject/presentation/views/checkout/cart.php">Cart</a>
 			<a href="/CST236MilestoneProject/presentation/views/login/logout.php">Logout</a>
 			<?php }?>
 		</div>

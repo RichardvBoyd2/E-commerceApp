@@ -15,6 +15,9 @@
 	<th>Product Name</th>
 	<th>Description</th>
 	<th>Price</th>
+	<?php if ($_SESSION['Loggedin'] == true) {?>
+	<th>Add To Cart</th>
+	<?php }?>
 	<?php if ($_SESSION['Role'] == 5) {?>
 	<th>Edit</th>
 	<?php }?>
@@ -29,8 +32,17 @@
 	    echo "<td>".$products[$x]['PRODUCTNAME']."</td>";
 	    echo "<td>".$products[$x]['DESCRIPTION']."</td>";
 	    echo "<td>".$products[$x]['PRICE']."</td>";
+	    if ($_SESSION['Loggedin'] == true) {
+	        echo "<td>
+    	    	<form action='addToCartHandler.php' method='post'>
+    	    		<input type='hidden' name='PRODUCT_ID' value='".$products[$x]['ID']."'/>
+                    <input type='hidden' name='USER_ID' value='".$_SESSION['User_id']."'/>
+    	    		<input type='submit' value='Add To Cart' />
+    	    	</form>
+    	    </td>";
+	    }
 	    if ($_SESSION['Role'] == 5) {
-	    echo "<td>
+	       echo "<td>
     	    	<form action='../views/admin/editProduct.php' method='post'>
     	    		<input type='hidden' name='ID' value='".$products[$x]['ID']."'/>
     	    		<input type='hidden' name='PRODUCTNAME' value='".$products[$x]['PRODUCTNAME']."'/>
