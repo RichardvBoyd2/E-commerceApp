@@ -2,6 +2,17 @@
 
 class ProductDataService
 {
+    function getLastOrderId() {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        
+        $sql2 = "SELECT ID FROM orders ORDER BY ID DESC LIMIT 1";
+        $result = mysqli_query($conn, $sql2);
+        $row = mysqli_fetch_assoc($result);
+        $orderid = $row['ID'];
+        
+        return $orderid;
+    }
     
     function removeFromCart($cartID) {
         $db = new Database();

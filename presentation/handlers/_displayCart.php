@@ -53,6 +53,10 @@ for ($x = 0; $x < count($products); $x++) {
 echo "<h2>Your total is: $".$subtotal."</h2>";
 ?>
 
+<form action='../../handlers/checkoutHandler.php' method='post'>	
+	<input type="submit" value="Checkout" />
+</form>
+
 <script>
 $(document).ready( function () {
     $('#products').DataTable();
