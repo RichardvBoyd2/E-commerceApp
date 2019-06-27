@@ -25,7 +25,7 @@ class CheckoutBusinessService
                 
         for ($x = 0; $x < count($products); $x++) {
             
-            $detail = new OrderDetails($orderID, $products[$x]['ID'], $products[$x]['QUANTITY'], $products[$x]['PRICE'], $products[$x]['PRODUCTNAME']);
+            $detail = new OrderDetails($orderID, $products[$x]['products.ID'], $products[$x]['QUANTITY'], $products[$x]['PRICE'], $products[$x]['PRODUCTNAME']);
             if ($checkout->newOrderdetail($detail)) {
                 $detailstest = false;
             } else {

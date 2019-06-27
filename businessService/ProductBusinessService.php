@@ -2,10 +2,16 @@
 
 class ProductBusinessService
 {
-    
-    function removeFromCart($cartID) {
+    function salesReport($start, $end) {
+        $report = array();
         $dbservice = new ProductDataService();
-        if ($dbservice->removeFromCart($cartID)) {
+        $report = $dbservice->salesReport($start, $end);
+        return $report;
+    }
+    
+    function removeFromCart($cartID, $user) {
+        $dbservice = new ProductDataService();
+        if ($dbservice->removeFromCart($cartID, $user)) {
             return true;
         } else {
             return false;

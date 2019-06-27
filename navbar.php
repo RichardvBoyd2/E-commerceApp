@@ -31,6 +31,7 @@
 			      if ($_SESSION['Role'] == 5) {?>
 			<a href="/CST236MilestoneProject/presentation/views/admin/newProduct.php">New Product</a>
 			<a href="/CST236MilestoneProject/presentation/views/register/register.php">New User</a>
+			<a href="/CST236MilestoneProject/presentation/views/admin/salesReport.php">Sales Report</a>
 			<?php }
 			      if ($_SESSION['Loggedin'] == true) {?>
 			<a href="/CST236MilestoneProject/presentation/views/checkout/cart.php">Cart</a>

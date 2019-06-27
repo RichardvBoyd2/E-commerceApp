@@ -2,6 +2,34 @@
 
 class ProductDataService
 {
+    function salesReport($start, $end) {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        
+        $sql = "SELECT CURRENTDESCRIPTION, QUANTITY, FIRSTNAME, LASTNAME, DATE
+                FROM orders 
+                JOIN orderdetails ON orders.ID = orderdetails.ORDERS_ID
+                JOIN users ON orders.USERS_ID = users.ID
+                WHERE DATE > '$start' AND DATE < '$end'
+                ORDER BY QUANTITY DESC";
+        
+        $result = mysqli_query($conn, $sql);
+        
+        if ($result->num_rows == 0 ) {
+            return null;
+        } else {
+            
+            $report = array();
+            
+            while ($product = mysqli_fetch_assoc($result)) {
+                array_push($report, $product);
+            }
+            
+            return $report;
+        }
+        
+    }
+    
     function getLastOrderId() {
         $db = new Database();
         $conn = $db->dbConnect();
@@ -14,11 +42,11 @@ class ProductDataService
         return $orderid;
     }
     
-    function removeFromCart($cartID) {
+    function removeFromCart($cartID, $user) {
         $db = new Database();
         $conn = $db->dbConnect();
         
-        $sql = "DELETE FROM cart WHERE ID='$cartID'";
+        $sql = "DELETE FROM cart WHERE ID='$cartID' AND USERS_ID='$user'";
         
         if (mysqli_query($conn, $sql)) {
             return true;
@@ -47,7 +75,7 @@ class ProductDataService
         $db = new Database();
         $conn = $db->dbConnect();
         
-        $sql = "SELECT cart.ID, PRODUCTNAME, PRICE, QUANTITY
+        $sql = "SELECT cart.ID AS 'cart.ID', products.ID AS 'products.ID', PRODUCTNAME, PRICE, QUANTITY
                 FROM cart
                 INNER JOIN products
                 ON cart.PRODUCTS_ID = products.ID

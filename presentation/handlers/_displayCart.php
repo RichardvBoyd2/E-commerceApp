@@ -28,14 +28,14 @@
 	    echo "<td>".$products[$x]['QUANTITY']."</td>";
 	    echo "<td>
             <form action='../../handlers/changeQuantityHandler.php' method='post'>
-	           <input type='hidden' name='cartID' value='".$products[$x]['ID']."' />
+	           <input type='hidden' name='cartID' value='".$products[$x]['cart.ID']."' />
 	           <input type='number' name='quantity' style='width: 3em' />
 	           <input type='submit' value='Edit' />
             </form>
         </td>";
 	    echo "<td>
             <form action='../../handlers/removeFromCartHandler.php' method='post'>
-	           <input type='hidden' name='cartID' value='".$products[$x]['ID']."' />
+	           <input type='hidden' name='cartID' value='".$products[$x]['cart.ID']."' />
 	           <input type='submit' value='Remove' />
             </form>
         </td>";
