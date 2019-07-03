@@ -37,7 +37,17 @@ $subtotal = 0.00;
 for ($x = 0; $x < count($products); $x++) {
     $subtotal += $products[$x]['QUANTITY'] * $products[$x]['PRICE'];
 }
-echo "<h2>Your total was: $".$subtotal."</h2>";
+
+if ($promo == 0) {
+    echo "Promo code was invalid";
+} else if ($promo == 1) {
+    echo "You've already used this promo code";
+} else {
+    echo ($promo * 100)." percent discount applied!";
+    $subtotal = $subtotal - ($subtotal * $promo);
+}
+
+echo "<h2>Your total was: $".number_format((float)$subtotal, 2, '.', '')."</h2>";
 ?>
 
 <script>

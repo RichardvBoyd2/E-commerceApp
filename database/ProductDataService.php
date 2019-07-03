@@ -2,6 +2,59 @@
 
 class ProductDataService
 {
+    function promoUse($couponID) {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $userID = $_SESSION['User_id'];
+        
+        $sql = "INSERT INTO couponuses (
+                COUPON_ID, USER_ID) VALUES (
+                '$couponID','$userID')";
+        
+        if (mysqli_query($conn, $sql)) {
+            $note = "Coupon ID = ".$couponID;
+            $order = $this->getLastOrderId();
+            
+            $sql2 = "INSERT INTO ordernotes (
+                     NOTES, ORDERS_ID, USERS_ID) VALUES (
+                     '$note','$order','$userID')";
+            mysqli_query($conn, $sql2);
+            
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    function promoCheck($code) {
+        $db = new Database();
+        $conn = $db->dbConnect();
+        $test = mysqli_real_escape_string($conn, $code);
+        
+        $sql = "SELECT * FROM coupons WHERE CODE='$code'";
+        $result = mysqli_query($conn, $sql);
+        $coupon = mysqli_fetch_assoc($result);
+        $couponID = $coupon['ID'];
+        $userID = $_SESSION['User_id'];
+        
+        $sql2 = "SELECT * FROM couponuses 
+                WHERE COUPON_ID='$couponID' AND USER_ID='$userID'";
+        $result2 = mysqli_query($conn, $sql2);
+        
+        if ($result->num_rows == 1) {
+            if ($result2->num_rows >= 1) {
+                //code already used
+                return 1;
+            } else {
+                //code successful!
+                return $coupon;
+            }
+        } else {
+            //no code found
+            return 0;
+        }
+    }
+    
     function salesReport($start, $end) {
         $db = new Database();
         $conn = $db->dbConnect();

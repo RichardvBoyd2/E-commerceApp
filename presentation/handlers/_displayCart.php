@@ -54,6 +54,7 @@ echo "<h2>Your total is: $".$subtotal."</h2>";
 ?>
 
 <form action='../../handlers/checkoutHandler.php' method='post'>	
+	Promo Code: <input type="text" name="promo" /><br>
 	<input type="submit" value="Checkout" />
 </form>
 

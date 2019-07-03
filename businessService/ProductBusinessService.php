@@ -2,6 +2,22 @@
 
 class ProductBusinessService
 {
+    function promoCode($code) {
+        $dbservice = new ProductDataService();
+        $check = $dbservice->promoCheck($code);
+        if ($check == 0) {
+            //code invalid
+            return 0;
+        } else if ($check == 1) {
+            //code already used
+            return 1;
+        } else {
+            //discount amount
+            $dbservice->promoUse($check['ID']);
+            return $check['DISCOUNT'];
+        }
+    }
+    
     function salesReport($start, $end) {
         $report = array();
         $dbservice = new ProductDataService();
